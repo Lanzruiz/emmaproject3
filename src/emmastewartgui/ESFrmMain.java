@@ -195,7 +195,7 @@ public class ESFrmMain extends javax.swing.JFrame {
         String workoutName = manager.selectItem("Workout", "workoutName", "workoutID", workoutID);
         
         //Get the workoutID so that you can use it later
-        setDetails.workoutID = Integer.valueOf(workoutID);
+        //setDetails.workoutID = Integer.valueOf(workoutID);
         
         //Get the rest of the setDetails 
         String setID = manager.selectItem("Sets", "setID", "workoutID", workoutID);
@@ -206,28 +206,28 @@ public class ESFrmMain extends javax.swing.JFrame {
         String setDescription = manager.selectItem("Sets", "setDescription", "workoutID", workoutID);
 
         //Now take the stuff you just got from the database and set it to the values in your object
-        ESSet setDetails = new ESSet();
+        
         ESWorkout workoutDetails = new ESWorkout();
-        setDetails.setTimeMins = Integer.parseInt(sMins);
-        setDetails.setTimeSecs = Integer.parseInt(sSecs);
-        setDetails.workoutID = Integer.parseInt(workoutID);
+        //setDetails.setTimeMins = Integer.parseInt(sMins);
+        //setDetails.setTimeSecs = Integer.parseInt(sSecs);
+        //setDetails.workoutID = Integer.parseInt(workoutID);
 
         workoutDetails.workoutName = workoutName;
-        setDetails.setID = Integer.parseInt(setID);
-        setDetails.numOrder = Integer.parseInt(numOrder);
-        setDetails.numOfLaps = Integer.parseInt(numOfLaps);
-        setDetails.setDis = setDis;
-        setDetails.strokeType = strokeType;
-        setDetails.setDescription = setDescription;
+        //setDetails.setID = Integer.parseInt(setID);
+        //setDetails.numOrder = Integer.parseInt(numOrder);
+        //setDetails.numOfLaps = Integer.parseInt(numOfLaps);
+        //setDetails.setDis = setDis;
+        //setDetails.strokeType = strokeType;
+        //setDetails.setDescription = setDescription;
                
-        System.out.println("setID: " + setDetails.setID);
-        System.out.println("numOfLaps: " + setDetails.numOfLaps);
-        System.out.println("Instructions: " + (numOfLaps) + " x " + String.valueOf(setDis) + "m "
-                + strokeType + " on " + String.valueOf(sMins) + ":" + String.valueOf(sSecs));
-        System.out.println("Description: " + setDescription);
+        //System.out.println("setID: " + setDetails.setID);
+        //System.out.println("numOfLaps: " + setDetails.numOfLaps);
+        //System.out.println("Instructions: " + (numOfLaps) + " x " + String.valueOf(setDis) + "m "
+               // + strokeType + " on " + String.valueOf(sMins) + ":" + String.valueOf(sSecs));
+       // System.out.println("Description: " + setDescription);
 
-        ESGuiRunWorkout dlg = new ESGuiRunWorkout(this, setDetails, true);
-        dlg.setVisible(true);        
+         ESGuiRunWorkout dlg = new ESGuiRunWorkout(this, clicked, true);
+         dlg.setVisible(true);        
     }//GEN-LAST:event_btnStartActionPerformed
 
     private void btnProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProfileActionPerformed

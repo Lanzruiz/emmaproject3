@@ -11,6 +11,11 @@ public class ESEditWorkout extends javax.swing.JDialog {
     EmmaStewartGUI manager;
     ESFrmMain ESFrmMain;
     String Clicked;
+    Integer IdClicked;
+    
+    EmmaStewartGUI mainClass = new EmmaStewartGUI();
+    
+    EmmaStewartGUI main = new EmmaStewartGUI();
 
     public ESEditWorkout(java.awt.Frame parent, boolean modal, String clickedvalue) {
         super(parent, modal);
@@ -26,7 +31,7 @@ public class ESEditWorkout extends javax.swing.JDialog {
         Integer seconds;
         String description;
         
-        EmmaStewartGUI main = new EmmaStewartGUI();
+        
         System.out.println("Id to be sent" +main.getId(Clicked));
         Id = main.getId(Clicked);
         System.out.println("Id to be lapse" +main.getsetId(Id));
@@ -1402,143 +1407,167 @@ public class ESEditWorkout extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-
-        System.out.println("Update: " +Clicked);
-        EmmaStewartGUI mainClass = new EmmaStewartGUI();
-        System.out.println(mainClass.getId(Clicked));
-        System.out.println("Id to the workout to update: " +mainClass.getId(Clicked));
         
-        //Set 1
-        Integer laps = Integer.parseInt(spnNumberofLaps1.getValue().toString());
-        Integer dis = Integer.parseInt(spnDis1.getValue().toString());
         Integer setId = mainClass.getsetId(mainClass.getId(Clicked));
-        String stroke = (String)cmbxStroke1.getSelectedItem();
-        String pb = (String)cmbxTime1.getSelectedItem();
-        Integer minutes = Integer.parseInt(spnMinTime1.getValue().toString());
-        Integer seconds = Integer.parseInt(spnSecTime1.getValue().toString());
-        String description = (String)txtfldDescription1.getText();
         
-        System.out.println("This is pb: " +pb);
-        mainClass.updateItem(txtfldWorkoutName.getText(), mainClass.getId(Clicked), laps, dis, stroke, pb, minutes, seconds, description, setId);
-        
-        //Set 2
-        laps = Integer.parseInt(spnNumberofLaps2.getValue().toString());
-        dis = Integer.parseInt(spnDis2.getValue().toString());
-        setId = mainClass.getsetId(mainClass.getId(Clicked));
-        stroke = (String)cmbxStroke2.getSelectedItem();
-        pb = (String)cmbxTime2.getSelectedItem();
-        minutes = Integer.parseInt(spnMinTime2.getValue().toString());
-        seconds = Integer.parseInt(spnSecTime2.getValue().toString());
-        description = (String)txtfldDescription2.getText();
-        
-        System.out.println("This is pb: " +pb);
-        mainClass.updateItem(txtfldWorkoutName.getText(), mainClass.getId(Clicked), laps, dis, stroke, pb, minutes, seconds, description, setId+1);
-        
-        //Set 3        
-        laps = Integer.parseInt(spnNumberofLaps03.getValue().toString());
-        dis = Integer.parseInt(spnDis03.getValue().toString());
-        setId = mainClass.getsetId(mainClass.getId(Clicked));
-        stroke = (String)cmbxStroke03.getSelectedItem();
-        pb = (String)cmbxTime03.getSelectedItem();
-        minutes = Integer.parseInt(spnMinTime03.getValue().toString());
-        seconds = Integer.parseInt(spnSecTime03.getValue().toString());
-        description = (String)txtfldDescription03.getText();
-        
-        System.out.println("This is pb: " +pb);
-        mainClass.updateItem(txtfldWorkoutName.getText(), mainClass.getId(Clicked), laps, dis, stroke, pb, minutes, seconds, description, setId+1+1);
-        
-        //Set 4
-        laps = Integer.parseInt(spnNumberofLaps4.getValue().toString());
-        dis = Integer.parseInt(spnDis4.getValue().toString());
-        setId = mainClass.getsetId(mainClass.getId(Clicked));
-        stroke = (String)cmbxStroke4.getSelectedItem();
-        pb = (String)cmbxTime4.getSelectedItem();
-        minutes = Integer.parseInt(spnMinTime4.getValue().toString());
-        seconds = Integer.parseInt(spnSecTime4.getValue().toString());
-        description = (String)txtfldDescription4.getText();
-        
-        System.out.println("This is pb:" +pb);
-        mainClass.updateItem(txtfldWorkoutName.getText(), mainClass.getId(Clicked), laps, dis, stroke, pb, minutes, seconds, description, setId+1+1+1);
-        
-        //Set 5
-        laps = Integer.parseInt(spnNumberofLaps5.getValue().toString());
-        dis = Integer.parseInt(spnDis5.getValue().toString());
-        setId = mainClass.getsetId(mainClass.getId(Clicked));
-        stroke = (String)cmbxStroke5.getSelectedItem();
-        pb = (String)cmbxTime5.getSelectedItem();
-        minutes = Integer.parseInt(spnMinTime5.getValue().toString());
-        seconds = Integer.parseInt(spnSecTime5.getValue().toString());
-        description = (String)txtfldDescription5.getText();
-        
-        System.out.println("This is pb:" +pb);
-        mainClass.updateItem(txtfldWorkoutName.getText(), mainClass.getId(Clicked), laps, dis, stroke, pb, minutes, seconds, description, setId+1+1+1+1);
-        
-        //Set 6
-        laps = Integer.parseInt(spnNumberofLaps6.getValue().toString());
-        dis = Integer.parseInt(spnDis6.getValue().toString());
-        setId = mainClass.getsetId(mainClass.getId(Clicked));
-        stroke = (String)cmbxStroke6.getSelectedItem();
-        pb = (String)cmbxTime6.getSelectedItem();
-        minutes = Integer.parseInt(spnMinTime6.getValue().toString());
-        seconds = Integer.parseInt(spnSecTime6.getValue().toString());
-        description = (String)txtfldDescription6.getText();
-        
-        System.out.println("This is pb:" +pb);
-        mainClass.updateItem(txtfldWorkoutName.getText(), mainClass.getId(Clicked), laps, dis, stroke, pb, minutes, seconds, description, setId+1+1+1+1+1);
-        
-        //Set 7
-        laps = Integer.parseInt(spnNumberofLaps7.getValue().toString());
-        dis = Integer.parseInt(spnDis7.getValue().toString());
-        setId = mainClass.getsetId(mainClass.getId(Clicked));
-        stroke = (String)cmbxStroke7.getSelectedItem();
-        pb = (String)cmbxTime7.getSelectedItem();
-        minutes = Integer.parseInt(spnMinTime7.getValue().toString());
-        seconds = Integer.parseInt(spnSecTime7.getValue().toString());
-        description = (String)txtfldDescription7.getText();
-        
-        System.out.println("This is pb:" +pb);
-        mainClass.updateItem(txtfldWorkoutName.getText(), mainClass.getId(Clicked), laps, dis, stroke, pb, minutes, seconds, description, setId+1+1+1+1+1+1);
-        
-        //Set 8
-        laps = Integer.parseInt(spnNumberofLaps8.getValue().toString());
-        dis = Integer.parseInt(spnDis8.getValue().toString());
-        setId = mainClass.getsetId(mainClass.getId(Clicked));
-        stroke = (String)cmbxStroke8.getSelectedItem();
-        pb = (String)cmbxTime8.getSelectedItem();
-        minutes = Integer.parseInt(spnMinTime8.getValue().toString());
-        seconds = Integer.parseInt(spnSecTime8.getValue().toString());
-        description = (String)txtfldDescription8.getText();
-        
-        System.out.println("This is pb:" +pb);
-        mainClass.updateItem(txtfldWorkoutName.getText(), mainClass.getId(Clicked), laps, dis, stroke, pb, minutes, seconds, description, setId+1+1+1+1+1+1+1);
-        
-        //Set 9
-        laps = Integer.parseInt(spnNumberofLaps9.getValue().toString());
-        dis = Integer.parseInt(spnDis9.getValue().toString());
-        setId = mainClass.getsetId(mainClass.getId(Clicked));
-        stroke = (String)cmbxStroke9.getSelectedItem();
-        pb = (String)cmbxTime9.getSelectedItem();
-        minutes = Integer.parseInt(spnMinTime9.getValue().toString());
-        seconds = Integer.parseInt(spnSecTime9.getValue().toString());
-        description = (String)txtfldDescription9.getText();
-        
-        System.out.println("This is pb:" +pb);
-        mainClass.updateItem(txtfldWorkoutName.getText(), mainClass.getId(Clicked), laps, dis, stroke, pb, minutes, seconds, description, setId+1+1+1+1+1+1+1+1);
-        
-        //Set 10
-        laps = Integer.parseInt(spnNumberofLaps10.getValue().toString());
-        dis = Integer.parseInt(spnDis10.getValue().toString());
-        setId = mainClass.getsetId(mainClass.getId(Clicked));
-        stroke = (String)cmbxStroke10.getSelectedItem();
-        pb = (String)cmbxTime10.getSelectedItem();
-        minutes = Integer.parseInt(spnMinTime10.getValue().toString());
-        seconds = Integer.parseInt(spnSecTime10.getValue().toString());
-        description = (String)txtfldDescription10.getText();
-        
-        System.out.println("This is pb:" +pb);
-        mainClass.updateItem(txtfldWorkoutName.getText(), mainClass.getId(Clicked), laps, dis, stroke, pb, minutes, seconds, description, setId+1+1+1+1+1+1+1+1+1);
-        
-        JOptionPane.showMessageDialog(null, "Successfully updated!"); 
+        System.out.println("Set Id Value " +mainClass.getsetId(mainClass.getId(Clicked)));
+        if(setId != '0') {
+            
+            System.out.println("Update: " +Clicked);
+
+            System.out.println(mainClass.getId(Clicked));
+            System.out.println("Id to the workout to update: " +mainClass.getId(Clicked));
+            System.out.println("Retain clicked id" +main.getId(Clicked));
+
+            mainClass.updateName(txtfldWorkoutName.getText(), main.getId(Clicked));
+            //mainClass.updateSets(Integer numLaps, Integer numDist, String stroke, String pB, Integer minutes, Integer seconds, String description, Integer setID);
+
+            //Set 1
+            Integer laps = Integer.parseInt(spnNumberofLaps1.getValue().toString());
+            Integer dis = Integer.parseInt(spnDis1.getValue().toString());
+            
+            String stroke = (String)cmbxStroke1.getSelectedItem();
+            String pb = (String)cmbxTime1.getSelectedItem();
+            Integer minutes = Integer.parseInt(spnMinTime1.getValue().toString());
+            Integer seconds = Integer.parseInt(spnSecTime1.getValue().toString());
+            String description = (String)txtfldDescription1.getText();
+
+            System.out.println("This is pb: " +pb);
+            // mainClass.updateItem(txtfldWorkoutName.getText(), main.getId(Clicked), laps, dis, stroke, pb, minutes, seconds, description, setId);
+            mainClass.updateSets(laps, dis, stroke, pb, minutes, seconds, description, setId);
+            
+            
+            //Set 2
+            laps = Integer.parseInt(spnNumberofLaps2.getValue().toString());
+            dis = Integer.parseInt(spnDis2.getValue().toString());
+            //setId = mainClass.getsetId(mainClass.getId(Clicked));
+            stroke = (String)cmbxStroke2.getSelectedItem();
+            pb = (String)cmbxTime2.getSelectedItem();
+            minutes = Integer.parseInt(spnMinTime2.getValue().toString());
+            seconds = Integer.parseInt(spnSecTime2.getValue().toString());
+            description = (String)txtfldDescription2.getText();
+
+            System.out.println("This is pb: " +pb);
+            //mainClass.updateItem(txtfldWorkoutName.getText(), main.getId(Clicked), laps, dis, stroke, pb, minutes, seconds, description, setId+1);
+            mainClass.updateSets(laps, dis, stroke, pb, minutes, seconds, description, setId+1);
+            
+            //Set 3        
+            laps = Integer.parseInt(spnNumberofLaps03.getValue().toString());
+            dis = Integer.parseInt(spnDis03.getValue().toString());
+            //setId = mainClass.getsetId(mainClass.getId(Clicked));
+            stroke = (String)cmbxStroke03.getSelectedItem();
+            pb = (String)cmbxTime03.getSelectedItem();
+            minutes = Integer.parseInt(spnMinTime03.getValue().toString());
+            seconds = Integer.parseInt(spnSecTime03.getValue().toString());
+            description = (String)txtfldDescription03.getText();
+
+            System.out.println("This is pb: " +pb);
+            //mainClass.updateItem(txtfldWorkoutName.getText(), main.getId(Clicked), laps, dis, stroke, pb, minutes, seconds, description, setId+1+1);
+            mainClass.updateSets(laps, dis, stroke, pb, minutes, seconds, description, setId+1+1);
+           
+            //Set 4
+            laps = Integer.parseInt(spnNumberofLaps4.getValue().toString());
+            dis = Integer.parseInt(spnDis4.getValue().toString());
+            //setId = mainClass.getsetId(mainClass.getId(Clicked));
+            stroke = (String)cmbxStroke4.getSelectedItem();
+            pb = (String)cmbxTime4.getSelectedItem();
+            minutes = Integer.parseInt(spnMinTime4.getValue().toString());
+            seconds = Integer.parseInt(spnSecTime4.getValue().toString());
+            description = (String)txtfldDescription4.getText();
+
+            System.out.println("This is pb:" +pb);
+            //mainClass.updateItem(txtfldWorkoutName.getText(), main.getId(Clicked), laps, dis, stroke, pb, minutes, seconds, description, setId+1+1+1);
+            mainClass.updateSets(laps, dis, stroke, pb, minutes, seconds, description, setId+1+1+1);
+            
+            
+            //Set 5
+            laps = Integer.parseInt(spnNumberofLaps5.getValue().toString());
+            dis = Integer.parseInt(spnDis5.getValue().toString());
+            //setId = mainClass.getsetId(mainClass.getId(Clicked));
+            stroke = (String)cmbxStroke5.getSelectedItem();
+            pb = (String)cmbxTime5.getSelectedItem();
+            minutes = Integer.parseInt(spnMinTime5.getValue().toString());
+            seconds = Integer.parseInt(spnSecTime5.getValue().toString());
+            description = (String)txtfldDescription5.getText();
+
+            System.out.println("This is pb:" +pb);
+            //mainClass.updateItem(txtfldWorkoutName.getText(), main.getId(Clicked), laps, dis, stroke, pb, minutes, seconds, description, setId+1+1+1+1);
+            mainClass.updateSets(laps, dis, stroke, pb, minutes, seconds, description, setId+4);
+
+            //Set 6
+            laps = Integer.parseInt(spnNumberofLaps6.getValue().toString());
+            dis = Integer.parseInt(spnDis6.getValue().toString());
+            //setId = mainClass.getsetId(mainClass.getId(Clicked));
+            stroke = (String)cmbxStroke6.getSelectedItem();
+            pb = (String)cmbxTime6.getSelectedItem();
+            minutes = Integer.parseInt(spnMinTime6.getValue().toString());
+            seconds = Integer.parseInt(spnSecTime6.getValue().toString());
+            description = (String)txtfldDescription6.getText();
+
+            System.out.println("This is pb:" +pb);
+            // mainClass.updateItem(txtfldWorkoutName.getText(), main.getId(Clicked), laps, dis, stroke, pb, minutes, seconds, description, setId+1+1+1+1+1);
+            mainClass.updateSets(laps, dis, stroke, pb, minutes, seconds, description, setId+5);
+            
+            //Set 7
+            laps = Integer.parseInt(spnNumberofLaps7.getValue().toString());
+            dis = Integer.parseInt(spnDis7.getValue().toString());
+            //setId = mainClass.getsetId(mainClass.getId(Clicked));
+            stroke = (String)cmbxStroke7.getSelectedItem();
+            pb = (String)cmbxTime7.getSelectedItem();
+            minutes = Integer.parseInt(spnMinTime7.getValue().toString());
+            seconds = Integer.parseInt(spnSecTime7.getValue().toString());
+            description = (String)txtfldDescription7.getText();
+
+            System.out.println("This is pb:" +pb);
+            //mainClass.updateItem(txtfldWorkoutName.getText(), main.getId(Clicked), laps, dis, stroke, pb, minutes, seconds, description, setId+1+1+1+1+1+1);
+            mainClass.updateSets(laps, dis, stroke, pb, minutes, seconds, description, setId+6);
+            //Set 8
+            laps = Integer.parseInt(spnNumberofLaps8.getValue().toString());
+            dis = Integer.parseInt(spnDis8.getValue().toString());
+            //setId = mainClass.getsetId(mainClass.getId(Clicked));
+            stroke = (String)cmbxStroke8.getSelectedItem();
+            pb = (String)cmbxTime8.getSelectedItem();
+            minutes = Integer.parseInt(spnMinTime8.getValue().toString());
+            seconds = Integer.parseInt(spnSecTime8.getValue().toString());
+            description = (String)txtfldDescription8.getText();
+
+            System.out.println("This is pb:" +pb);
+            //mainClass.updateItem(txtfldWorkoutName.getText(), main.getId(Clicked), laps, dis, stroke, pb, minutes, seconds, description, setId+1+1+1+1+1+1+1);
+            mainClass.updateSets(laps, dis, stroke, pb, minutes, seconds, description, setId+7);
+            //Set 9
+            laps = Integer.parseInt(spnNumberofLaps9.getValue().toString());
+            dis = Integer.parseInt(spnDis9.getValue().toString());
+            //setId = mainClass.getsetId(mainClass.getId(Clicked));
+            stroke = (String)cmbxStroke9.getSelectedItem();
+            pb = (String)cmbxTime9.getSelectedItem();
+            minutes = Integer.parseInt(spnMinTime9.getValue().toString());
+            seconds = Integer.parseInt(spnSecTime9.getValue().toString());
+            description = (String)txtfldDescription9.getText();
+
+            System.out.println("This is pb:" +pb);
+            //mainClass.updateItem(txtfldWorkoutName.getText(), main.getId(Clicked), laps, dis, stroke, pb, minutes, seconds, description, setId+1+1+1+1+1+1+1+1);
+            mainClass.updateSets(laps, dis, stroke, pb, minutes, seconds, description, setId+8);
+            //Set 10
+            laps = Integer.parseInt(spnNumberofLaps10.getValue().toString());
+            dis = Integer.parseInt(spnDis10.getValue().toString());
+            //setId = mainClass.getsetId(mainClass.getId(Clicked));
+            stroke = (String)cmbxStroke10.getSelectedItem();
+            pb = (String)cmbxTime10.getSelectedItem();
+            minutes = Integer.parseInt(spnMinTime10.getValue().toString());
+            seconds = Integer.parseInt(spnSecTime10.getValue().toString());
+            description = (String)txtfldDescription10.getText();
+
+            System.out.println("This is pb:" +pb);
+            //mainClass.updateItem(txtfldWorkoutName.getText(), main.getId(Clicked), laps, dis, stroke, pb, minutes, seconds, description, setId+1+1+1+1+1+1+1+1+1);
+            mainClass.updateSets(laps, dis, stroke, pb, minutes, seconds, description, setId+9);
+            JOptionPane.showMessageDialog(null, "Successfully updated!"); 
+            
+            dispose();
+            
+ 
+        } else {
+            JOptionPane.showMessageDialog(null, "No Clicked Value!");
+        }
         
     }//GEN-LAST:event_btnUpdateActionPerformed
 

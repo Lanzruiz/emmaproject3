@@ -16,24 +16,30 @@ public class ESGuiRunWorkout extends javax.swing.JDialog {
     ESSet setDetails;
     ESWorkout workoutDetails;
 
-    public ESGuiRunWorkout(java.awt.Frame parent, ESSet setDetails, boolean modal) {
+    public ESGuiRunWorkout(java.awt.Frame parent, String ItemClicked, boolean modal) {
         super(parent, modal);
         initComponents();
+        System.out.println("The timer now is working!");
+        lblNameWorkout.setText(ItemClicked);
 //        countdownToWorkout();
-        runWorkout();
-        this.setDetails = setDetails;
-        if (setDetails.setTimeMins < 10) {
-            lblMinsTime.setText(String.valueOf("0" + setDetails.setTimeMins));
-        } else {
-            lblMinsTime.setText(String.valueOf(setDetails.setTimeMins));
-        }
-        if (setDetails.setTimeSecs < 10) {
-            lblSecsTime.setText(String.valueOf("0" + setDetails.setTimeSecs));
-        } else {
-            lblSecsTime.setText(String.valueOf(setDetails.setTimeSecs));
-        }
+       // runWorkout();
+        //this.setDetails = setDetails;
+        //if (setDetails.setTimeMins < 10) {
+          //  lblMinsTime.setText(String.valueOf("0" + setDetails.setTimeMins));
+        //} else {
+          //  lblMinsTime.setText(String.valueOf(setDetails.setTimeMins));
+        //}
+        //if (setDetails.setTimeSecs < 10) {
+          //  lblSecsTime.setText(String.valueOf("0" + setDetails.setTimeSecs));
+        //} else {
+          //  lblSecsTime.setText(String.valueOf(setDetails.setTimeSecs));
+       // }
         //Code above simply standerdizes the values retrieved from the database to appear in MM:SS
-        start();
+        //start();
+    }
+    
+    public void pop() {
+        System.out.println("Test");
     }
 
     public void runWorkout() {
@@ -58,18 +64,18 @@ public class ESGuiRunWorkout extends javax.swing.JDialog {
         lblSetDescription.setText(setDetails.setDescription);
 
         String workoutID = manager.selectItem("Workout", "workoutID", "workoutID", workoutDetails.workoutName);
-        PreparedStatement pst = new EmmaStewartGUI().connect().prepareStatement(sql);
+        //PreparedStatement pst = new EmmaStewartGUI().connect().prepareStatement(sql);
         int intWorkoutID = Integer.parseInt(workoutID);
-        ResultSet rs = pst.executeQuery();
-        int rsID = rs.getString();
+        //ResultSet rs = pst.executeQuery();
+        //int rsID = rs.getString();
 
         //While the workout ID is what is gotten from the DB
-        while (intWorkoutID == setDetails.workoutID) {
+        //while (intWorkoutID == setDetails.workoutID) {
             /* Run one set the number of times specified in  the numOfLaps. 
             When it's done, move onto the next set, get all the data and do 
             that until the workoutID is no longer equal to the one selected from the list */
-            runOneSet();
-        }
+            //runOneSet();
+       // }
 
         /*      int numOfLaps = setDetails.numOfLaps;
         while (workoutID = workoutDetails.workoutID){
@@ -87,14 +93,14 @@ public class ESGuiRunWorkout extends javax.swing.JDialog {
         }   */
     }
 
-    public void runOneSet() {
-        String idString = String.valueOf(setDetails.setID);
-        String nOl = manager.selectItem("Sets", "numOfLaps", "workoutID", idString);
-        int nOL = Integer.valueOf(nOl);
-        for (int i = 0; i < nOL + 1; i++) {
-            task.run();
-        }
-    }
+   // public void runOneSet() {
+     //   String idString = String.valueOf(setDetails.setID);
+     //   String nOl = manager.selectItem("Sets", "numOfLaps", "workoutID", idString);
+     //   int nOL = Integer.valueOf(nOl);
+      //  for (int i = 0; i < nOL + 1; i++) {
+        //    task.run();
+       // }
+   // }
 
     int secondsPassed = 0;
     Timer myTimer = new Timer();
@@ -155,14 +161,7 @@ public class ESGuiRunWorkout extends javax.swing.JDialog {
         }
     }
 
-    public void runOneSet() {
-        String idString = String.valueOf(setDetails.setID);
-        String nOl = manager.selectItem("Sets", "numOfLaps", "workoutID", idString);
-        int nOL = Integer.valueOf(nOl);
-        for (int i = 0; i < nOL + 1; i++) {
-            task.run();
-        }
-    }
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -286,6 +285,9 @@ public class ESGuiRunWorkout extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnPauseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPauseActionPerformed
+        
+        pop();
+        
         String[] buttons = {"Continue", "Quit workout"};
         //Give options to be pressed
         int rc = JOptionPane.showOptionDialog(null, "Paused", "Menu", JOptionPane.PLAIN_MESSAGE, 0, null, buttons, buttons[0]);

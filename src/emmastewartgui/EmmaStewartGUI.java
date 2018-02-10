@@ -35,11 +35,49 @@ public class EmmaStewartGUI {
         }
         return c;
     }
+    
+    public void updateName(String workoutName, Integer ID) {
+        String sql = "UPDATE Workout SET workoutName = ? WHERE workoutID = ?";
+        System.out.println("The retain clicked enter is:" +ID);
+        try (Connection conn = this.connect();
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            // set the corresponding param
+            pstmt.setString(1, workoutName);
+            pstmt.setInt(2, ID);
+            // update 
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    public void updateSets(Integer numLaps, Integer numDist, String stroke, String pB, Integer minutes, Integer seconds, String description, Integer setID) {
+         System.out.println("Set ID to be updated" + setID);
+        String sqlsets = "UPDATE Sets SET numofLaps = ?, setDis = ?, strokeType = ?, isPB = ?, setTimeMins = ?, setTimeSecs = ?, setDescription = ?  WHERE setID = ?";
+
+        try (Connection conn = this.connect();
+                PreparedStatement pstmt2 = conn.prepareStatement(sqlsets)) {
+
+            // set the corresponding param
+            pstmt2.setInt(1, numLaps);
+            pstmt2.setInt(2, numDist);
+            pstmt2.setString(3, stroke);
+            pstmt2.setString(4, pB);
+            pstmt2.setInt(5, minutes);
+            pstmt2.setInt(6, seconds);
+            pstmt2.setString(7, description);
+            pstmt2.setInt(8, setID);
+            // update 
+            pstmt2.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 
     public void updateItem(String workoutName, Integer ID, Integer numLaps, Integer numDist, String stroke, String pB, Integer minutes, Integer seconds, String description, Integer setID) {
 
         String sql = "UPDATE Workout SET workoutName = ? WHERE workoutID = ?";
-
+        System.out.println("The retain clicked enter is:" +ID);
         try (Connection conn = this.connect();
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
@@ -112,6 +150,7 @@ public class EmmaStewartGUI {
         }
         return 0;
     }
+    
 
     public int getDist(Integer SetId) {
 
